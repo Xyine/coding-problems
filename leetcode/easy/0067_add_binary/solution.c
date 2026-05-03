@@ -7,7 +7,6 @@ char* addBinary(char* a, char* b) {
 
     int i = lenA - 1;
     int j = lenB - 1;
-    int carry = 0;
 
     int maxLen = lenA > lenB ? lenA : lenB;
     char* result = malloc(maxLen + 2);
@@ -15,6 +14,7 @@ char* addBinary(char* a, char* b) {
     result[maxLen + 1] = '\0';
 
     int k = maxLen;
+    int carry = 0;
 
     while (i >= 0 || j >= 0 || carry) {
         int sum = carry;
@@ -26,10 +26,9 @@ char* addBinary(char* a, char* b) {
         carry = sum / 2;
     }
 
-    if (k == -1) {
-        return result;
+    if (k == 0) {
+        memmove(result, result + 1, maxLen + 1);
     }
 
-    memmove(result, result + k + 1, maxLen - k + 1);
     return result;
 }
