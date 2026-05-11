@@ -12,7 +12,7 @@ struct TreeNode {
 
 class Solution {
 public:
-    void preorder(TreeNode* root, vector<int>& result) {
+    void preorder(TreeNode* root, std::vector<int>& result) {
         if (root == nullptr) {
             return;
         }
@@ -21,8 +21,8 @@ public:
         preorder(root->right, result);
     }
 
-    vector<int> preorderTraversal(TreeNode* root) {
-        vector<int> result;
+    std::vector<int> preorderTraversal(TreeNode* root) {
+        std::vector<int> result;
         preorder(root, result);
         return result;
     }
